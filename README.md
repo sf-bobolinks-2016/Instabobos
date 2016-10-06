@@ -20,3 +20,6 @@
 	* Redirect URL: `http://localhost:9393/auth/callback`
 
 ![alt text](./docs/ig_registration.png)
+
+### Done and Manage
+![alt text](./docs/ig_keys.png)
