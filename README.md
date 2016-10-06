@@ -10,8 +10,13 @@
 
 ![alt text](./docs/ig_landing.png)
 
-### Go here!
+### Go here to start the registration!
 ![alt text](./docs/ig_new.png)
 
+### Register like a champ!
+* Ports are important...
+* Examples:
+	* Website URL: `http://localhost:9393/`
+	* Redirect URL: `http://localhost:9393/auth/callback`
 
-
+![alt text](./docs/ig_registration.png)
