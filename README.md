@@ -2,6 +2,7 @@
 
 ## Run it
 * ` $ Shotgun` or `$ Unicorn` (look into the difference)
+* Visit localhost:9393 or localhost:8080 (if defaults) 
 
 ## Maria las llaves!! Get your keys...
 
