@@ -27,3 +27,7 @@
 ### Your credentials
 ![alt text](./docs/ig_credentials.png)
 
+
+## Get the access_token :S
+
+

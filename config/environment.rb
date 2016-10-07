@@ -23,6 +23,7 @@ require 'sinatra/cross_origin'
 
 require 'erb'
 require 'haml'
+require 'instagram'
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
@@ -30,7 +31,7 @@ APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
 
 configure do
-  
+
   # ------------------------------------------------
   # If you want to share this with the DBC network.
   # ------------------------------------------------

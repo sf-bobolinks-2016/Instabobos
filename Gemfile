@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'unicorn'
 
+# Instagram wrapper
+gem 'instagram'
+
 # PostgreSQL driver
 gem 'pg'
 
