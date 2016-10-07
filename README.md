@@ -23,3 +23,7 @@
 
 ### Done and Manage
 ![alt text](./docs/ig_keys.png)
+
+### Your credentials
+![alt text](./docs/ig_credentials.png)
+
