@@ -35,10 +35,10 @@
 ```  
 
 ### Get the access_token :S
-1- Visit '/' 
-2- Press the Instagram Logo
-3- Authorize 
-4- PROFIT!!!
+	1 Visit '/'  
+	2 Press the Instagram Logo  
+	3 Authorize  
+	4 PROFIT!!!  
 
 ### And the token ???
 In the servers logs (terminal)
@@ -48,7 +48,7 @@ In the servers logs (terminal)
 "--------------------------------------"
 ```
 
-### Test order Instagram Endpoints
+### Test other Instagram Endpoints
 access_token + Postman
 ![alt text](./docs/ig_postman.png)
 
