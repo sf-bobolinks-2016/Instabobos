@@ -35,6 +35,7 @@
 ```  
 
 ### Get the access_token :S
+	0 Shotgun
 	1 Visit '/'  
 	2 Press the Instagram Logo  
 	3 Authorize  
