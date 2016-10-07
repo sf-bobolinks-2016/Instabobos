@@ -28,6 +28,27 @@
 ![alt text](./docs/ig_credentials.png)
 
 
-## Get the access_token :S
+### Add your credentials to the controller Instagram.rb:
+```
+  config.client_id = "2b089c3e792e413e83df3a594xxxxx"
+  config.client_secret = "9302a2b100ae4494a8d43c65xxxxxx"
+```  
 
+### Get the access_token :S
+1- Visit '/' 
+2- Press the Instagram Logo
+3- Authorize 
+4- PROFIT!!!
+
+### And the token ???
+In the servers logs (terminal)
+```
+"######### accsess_token ##############"
+"369004168.2b089c3.b8f0a8115c144dxxxxxxx"
+"--------------------------------------"
+```
+
+### Test order Instagram Endpoints
+access_token + Postman
+![alt text](./docs/ig_postman.png)
 
