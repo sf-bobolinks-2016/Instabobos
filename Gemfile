@@ -25,6 +25,8 @@ gem 'shotgun'
 
 gem 'haml'
 
+gem 'pry'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'

@@ -1,11 +1,22 @@
 class User 
+	include ActiveModel::Validations
 	include Mongoid::Document
-  # Remember to create a migration!
 
-  field :first_name, type: String
-  field :middle_name, type: String
-  field :last_name, type: String
+	has_many :pictures
+
+	validates :instagram_id, uniqueness: true
+
+	field :bio, type: String
+	field :full_name, type: String
+	field :instagram_id, type: String
+	field :profile_picture, type: String
+	field :username, type: String
+	field :website, type: String
 end
+
+
+
+
 
 
  

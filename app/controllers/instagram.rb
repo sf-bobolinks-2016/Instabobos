@@ -81,6 +81,16 @@ get "/auth/callback" do
   p response
   p "--------------------------------------"
 
+  user_info = response.user
+
+  User.create(
+    bio: user_info.bio,
+    full_name: user_info.full_name,
+    instagram_id: user_info.id,
+    profile_picture: user_info.profile_picture,
+    username: user_info.username,
+    website: user_info.website)
+
   session[:access_token] = response.access_token
 
   redirect "/user_recent_media"
@@ -92,6 +102,24 @@ get "/user_recent_media" do
   client = Instagram.client(:access_token => session[:access_token])
   user = client.user
   recent_media = client.user_recent_media
+
+  pp JSON.parse(recent_media.first.to_json)
+
+  user_id = User.find_by(instagram_id: recent_media.first.user.id).id
+
+  recent_media.each do |media|
+
+    Picture.create(
+      user_id: user_id,
+      instagram_id: media.id,
+      instagram_type: media.type,
+      location: media.location,
+      link: media.link,
+      thumbnail: media.images.thumbnail.url,
+      standard_resolution: media.images.standard_resolution.url
+      )
+
+  end
 
 
   # You now can use third party data in your views

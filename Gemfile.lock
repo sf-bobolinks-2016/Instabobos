@@ -26,6 +26,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    coderay (1.1.1)
     diff-lcs (1.2.5)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
@@ -46,6 +47,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.3)
     json (1.8.3)
     kgio (2.10.0)
+    method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -66,6 +68,10 @@ GEM
     origin (2.2.0)
     pg (0.18.4)
     pkg-config (1.1.7)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -102,6 +108,7 @@ GEM
       sinatra (~> 1.4.0)
       tilt (>= 1.3, < 3)
     sinatra-cross_origin (0.3.2)
+    slop (3.6.0)
     thread_safe (0.3.5)
     tilt (2.0.5)
     tzinfo (1.2.2)
@@ -125,6 +132,7 @@ DEPENDENCIES
   instagram
   mongoid (~> 5.1.0)
   pg
+  pry
   rack-test
   rake
   rspec (~> 3.0)
