@@ -11,6 +11,7 @@ require 'uri'
 require 'pathname'
 
 require 'pg'
+require 'mongoid'
 require 'active_record'
 require 'logger'
 
@@ -68,6 +69,12 @@ end
 # Set up the controllers and helpers
 Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
 Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
+
+
+# No SQL setup
+Dir[APP_ROOT.join('app', 'models', 'NOSQL' ,'*.rb')].each { |file| require file }
+Mongoid.load!("#{APP_ROOT}/config/mongoid.yml", :development)
+
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')

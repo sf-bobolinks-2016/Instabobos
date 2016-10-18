@@ -6,15 +6,15 @@ require ::File.expand_path('../config/environment', __FILE__)
 require 'active_support/core_ext'
 
 namespace :generate do
-  desc "Create an empty model in app/models, e.g., rake generate:model NAME=User"
-  task :model do
+  desc "Create an empty RDBMS model in app/RDBMS/models, e.g., rake generate:rdbms_model NAME=User"
+  task :rdbms_model do
     unless ENV.has_key?('NAME')
-      raise "Must specificy model name, e.g., rake generate:model NAME=User"
+      raise "Must specificy model name, e.g., rake generate:rdbms_model NAME=User"
     end
 
     model_name     = ENV['NAME'].camelize
     model_filename = ENV['NAME'].underscore + '.rb'
-    model_path = APP_ROOT.join('app', 'models', model_filename)
+    model_path = APP_ROOT.join('app', 'models', 'RDBMS', model_filename)
 
     if File.exist?(model_path)
       raise "ERROR: Model file '#{model_path}' already exists"
@@ -30,10 +30,35 @@ namespace :generate do
     end
   end
 
-  desc "Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks"
+  desc "Create an empty model NOSQL in app/NOSQL/models, e.g., rake generate:nosql_model NAME=User"
+  task :nosql_model do
+    unless ENV.has_key?('NAME')
+      raise "Must specificy model name, e.g., rake generate:nosql_model NAME=User"
+    end
+
+    model_name     = ENV['NAME'].camelize
+    model_filename = ENV['NAME'].underscore + '.rb'
+    model_path = APP_ROOT.join('app', 'models', 'NOSQL', model_filename)
+
+    if File.exist?(model_path)
+      raise "ERROR: Model file '#{model_path}' already exists"
+    end
+
+    puts "Creating #{model_path}"
+    File.open(model_path, 'w+') do |f|
+      f.write(<<-EOF.strip_heredoc)
+        class #{model_name}
+          include Mongoid::Document
+          # We dont need a migration!
+        end
+      EOF
+    end
+  end
+
+  desc "Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_users"
   task :migration do
     unless ENV.has_key?('NAME')
-      raise "Must specificy migration name, e.g., rake generate:migration NAME=create_tasks"
+      raise "Must specificy migration name, e.g., rake generate:migration NAME=create_users"
     end
 
     name     = ENV['NAME'].camelize

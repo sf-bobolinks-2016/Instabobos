@@ -15,7 +15,7 @@ end
 # that file doesn't define the Person class.
 #
 # See http://www.rubyinside.com/ruby-techniques-revealed-autoload-1652.html
-Dir[APP_ROOT.join('app', 'models', '*.rb')].each do |model_file|
+Dir[APP_ROOT.join('app', 'models', 'RDBMS', '*.rb')].each do |model_file|
   filename = File.basename(model_file).gsub('.rb', '')
   autoload ActiveSupport::Inflector.camelize(filename), model_file
 end
@@ -23,6 +23,9 @@ end
 # Heroku controls what database we connect to by setting the DATABASE_URL environment variable
 # We need to respect that if we want our Sinatra apps to run on Heroku without modification
 db = URI.parse(ENV['DATABASE_URL'] || "postgres://localhost/#{APP_NAME}_#{Sinatra::Application.environment}")
+
+puts "^^^^ DB OBJEC TO USE IN CONNECTION ^^^^^^"
+p db
 
 DB_NAME = db.path[1..-1]
 

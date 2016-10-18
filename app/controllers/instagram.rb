@@ -33,8 +33,8 @@ CALLBACK_URL = "http://localhost:9393/auth/callback"
 # Here your cerdentials. You can allocate this somewhere else. Environment file
 # would be a good place. Id and secret better to be saved in an .env file.
 Instagram.configure do |config|
-  config.client_id = "2b089c3e792e413e83df3xxx"
-  config.client_secret = "528659e2e55b4e479xxxx"
+  config.client_id = "2b089c3e792e413e83df3a594320373c"
+  config.client_secret = "528659e2e55b4e4790231e7ab47ca68a"
 end
 
 # ---------------------------------------------------------------------

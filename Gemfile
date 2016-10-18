@@ -13,6 +13,9 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem "sinatra-cross_origin", "~> 0.3.1"
 
+# MongoDB
+gem 'mongoid', '~> 5.1.0'
+
 gem 'activesupport', '~>4.2.0'
 gem 'activerecord', '~>4.2.0'
 
