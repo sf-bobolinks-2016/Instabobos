@@ -1,19 +1,23 @@
-# Instagram Magic
+# Deconstruct some Instagram Magic
 
-## Run it
+## Release 0
+Follow this repos instructions to get your credentials with Instagram and add them to the project. Get the project to authenticate and consume the API. 
+
+### Run it
+* `bundle install`
 * ` $ Shotgun` or `$ Unicorn` (look into the difference)
 * Visit localhost:9393 or localhost:8080 (if defaults) 
 
-## Maria las llaves!! Get your keys...
+### Maria las llaves!! Get your keys...
 
 [Go to the Instagram Dev site](https://www.instagram.com/developer/)
 
 ![alt text](./docs/ig_landing.png)
 
-### Go here to start the registration!
+#### Go here to start the registration!
 ![alt text](./docs/ig_new.png)
 
-### Register like a champ!
+#### Register like a champ!
 * Ports are important...
 * Examples:
 	* Website URL: `http://localhost:9393/`
@@ -21,27 +25,27 @@
 
 ![alt text](./docs/ig_registration.png)
 
-### Done and Manage
+#### Done and Manage
 ![alt text](./docs/ig_keys.png)
 
-### Your credentials
+#### Your credentials
 ![alt text](./docs/ig_credentials.png)
 
-## In the APP
-### Add your credentials to the controller Instagram.rb:
+### In the APP
+#### Add your credentials to the controller Instagram.rb:
 ```
   config.client_id = "2b089c3e792e413e83df3a594xxxxx"
   config.client_secret = "9302a2b100ae4494a8d43c65xxxxxx"
 ```  
 
-### Get the access_token :S
+#### Get the access_token :S
 	0 Shotgun
 	1 Visit '/'  
 	2 Press the Instagram Logo  
 	3 Authorize  
 	4 PROFIT!!!  
 
-### And the token ???
+#### And the token ???
 In the servers logs (terminal)
 ```
 "######### accsess_token ##############"
@@ -49,16 +53,37 @@ In the servers logs (terminal)
 "--------------------------------------"
 ```
 
-### Test other Instagram Endpoints
+#### Test other Instagram Endpoints
 access_token + Postman
 ![alt text](./docs/ig_postman.png)
 
-# THE FLOW of OAuth 2.0
-## Find this steps commented on app/controllers/instagram.rb
+## THE FLOW of OAuth 2.0
+### Find this steps commented on app/controllers/instagram.rb
 
-* Step 0: Provide a way to manage a ridirect to the third party login.
-* Step 1: Redirect the users to the third party Auth url. This redirect usually require send some query params to notify the third party who you are and where are you comming from.
-* Step 2: The third party service will responde back to your application to the callback URL. In this case they are responding with a code. Look the what the params have.
-* Step 3: Once you have the code. Format a Post request to get an access token and some Users information. Inspect the response out of that Post. Use this info to create a user in your DB save and the token in the sessions hash.
-* Step 4: Use the access token saved in the session hash to consume the API
+* Step 0: Provide a way to manage a ridirect to the third party login. 
+
+* Step 1: Redirect the users to the third party Auth url. This redirect usually require send some query params to notify the third party who you are and where are you comming from.  
+
+* Step 2: The third party service will responde back to your application to the callback URL. In this case they are responding with a code. Look the what the params have.  
+
+* Step 3: Once you have the code. Format a Post request to get an access token and some Users information. Inspect the response out of that Post. Use this info to create a user in your DB save and the token in the sessions hash.  
+
+* Step 4: Use the access token saved in the session hash to consume the API.
+
+We are going to use the instagram gem.  
+
+If you want to see what the gem is doing on each step:
+* [Step 1](https://github.com/facebookarchive/instagram-ruby-gem/blob/master/lib/instagram/oauth.rb#L5)
+* [Step 2](https://github.com/facebookarchive/instagram-ruby-gem/blob/master/lib/instagram/oauth.rb#L14)
+* [Step 4](https://github.com/facebookarchive/instagram-ruby-gem/blob/master/lib/instagram/client/users.rb#L160)
+
+## Release 1
+Replace the usage of the API wrapper for your own url formating and Http request using [plain vanilla ruby](https://ruby-doc.org/stdlib-2.3.1/libdoc/net/http/rdoc/Net/HTTP.html).
+
+## Release 2
+Encapsulate your interaction with the API using [HTTParty](https://github.com/jnunemaker/httparty).
+
+## TODO:
+* Add user model
+* Hook MongoDB and use it somehow
 
