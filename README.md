@@ -54,7 +54,7 @@ access_token + Postman
 ![alt text](./docs/ig_postman.png)
 
 # THE FLOW of OAuth 2.0
-## This this steps commented on app/controllers/instagram.rb
+## Find this steps commented on app/controllers/instagram.rb
 
 * Step 0: Provide a way to manage a ridirect to the third party login. 
 
