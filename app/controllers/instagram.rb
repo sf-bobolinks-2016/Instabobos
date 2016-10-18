@@ -83,6 +83,7 @@ get "/auth/callback" do
 
   user_info = response.user
 
+  # Creating User from info provided by third party
   User.create(
     bio: user_info.bio,
     full_name: user_info.full_name,
@@ -91,6 +92,7 @@ get "/auth/callback" do
     username: user_info.username,
     website: user_info.website)
 
+  # Saving the token in sessions hash
   session[:access_token] = response.access_token
 
   redirect "/user_recent_media"
@@ -103,12 +105,14 @@ get "/user_recent_media" do
   user = client.user
   recent_media = client.user_recent_media
 
+  # Printing one picture object coming from third party
   pp JSON.parse(recent_media.first.to_json)
 
+  # This is an extra step to find the user...
   user_id = User.find_by(instagram_id: recent_media.first.user.id).id
 
+  # Saving Pictures in Mongo
   recent_media.each do |media|
-
     Picture.create(
       user_id: user_id,
       instagram_id: media.id,
@@ -118,7 +122,6 @@ get "/user_recent_media" do
       thumbnail: media.images.thumbnail.url,
       standard_resolution: media.images.standard_resolution.url
       )
-
   end
 
 
