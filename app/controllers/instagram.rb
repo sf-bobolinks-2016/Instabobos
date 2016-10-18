@@ -1,4 +1,7 @@
-# THE FLOW of OAuth 2.0
+# ##################### THE FLOW OF OAuth 2.0 #######################
+# ----------------------------------------------------------------------
+
+# 
 
 # Step 0:   Provide a way to manage a ridirect to the third party login
 
@@ -17,7 +20,7 @@
 
 # Step 4:   Use the access token saved in the session hash to consume the API
 
-            
+# ----------------------------------------------------------------------
 
 
 # ##################### API WRAPER CONFIGURATION #######################
@@ -35,7 +38,6 @@ Instagram.configure do |config|
 end
 
 # ---------------------------------------------------------------------
-
 
 
 # ##################### AUTH AND CONSUPTION FLOW #######################

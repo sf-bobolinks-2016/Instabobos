@@ -53,8 +53,8 @@ In the servers logs (terminal)
 access_token + Postman
 ![alt text](./docs/ig_postman.png)
 
-## THE FLOW of OAuth 2.0
-# This this steps commented on app/controllers/instagram.rb
+# THE FLOW of OAuth 2.0
+## Find this steps commented on app/controllers/instagram.rb
 
 * Step 0: Provide a way to manage a ridirect to the third party login.
 * Step 1: Redirect the users to the third party Auth url. This redirect usually require send some query params to notify the third party who you are and where are you comming from.
