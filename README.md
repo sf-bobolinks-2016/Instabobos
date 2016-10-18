@@ -53,12 +53,16 @@ In the servers logs (terminal)
 access_token + Postman
 ![alt text](./docs/ig_postman.png)
 
-## THE FLOW of OAuth 2.0
-# This this steps commented on app/controllers/instagram.rb
+# THE FLOW of OAuth 2.0
+## This this steps commented on app/controllers/instagram.rb
 
-* Step 0: Provide a way to manage a ridirect to the third party login.
-* Step 1: Redirect the users to the third party Auth url. This redirect usually require send some query params to notify the third party who you are and where are you comming from.
-* Step 2: The third party service will responde back to your application to the callback URL. In this case they are responding with a code. Look the what the params have.
-* Step 3: Once you have the code. Format a Post request to get an access token and some Users information. Inspect the response out of that Post. Use this info to create a user in your DB save and the token in the sessions hash.
-* Step 4: Use the access token saved in the session hash to consume the API
+* Step 0: Provide a way to manage a ridirect to the third party login. 
+
+* Step 1: Redirect the users to the third party Auth url. This redirect usually require send some query params to notify the third party who you are and where are you comming from.  
+
+* Step 2: The third party service will responde back to your application to the callback URL. In this case they are responding with a code. Look the what the params have.  
+
+* Step 3: Once you have the code. Format a Post request to get an access token and some Users information. Inspect the response out of that Post. Use this info to create a user in your DB save and the token in the sessions hash.  
+
+* Step 4: Use the access token saved in the session hash to consume the API  
 
