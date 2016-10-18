@@ -75,7 +75,7 @@ If you want to see what the gem is doing on each step:
 * [Step 4](https://github.com/facebookarchive/instagram-ruby-gem/blob/master/lib/instagram/client/users.rb#L160)
 
 ## Release 1
-Replace the usage of the API wrapper for your own url formating and Http request using [plain vanilla ruby](https://ruby-doc.org/stdlib-2.3.1/libdoc/net/http/rdoc/Net/HTTP.html).
+Replace the usage of the API wrapper for your own url formating and HTTP requests using [plain vanilla ruby](https://ruby-doc.org/stdlib-2.3.1/libdoc/net/http/rdoc/Net/HTTP.html).
 
 ## Release 2
 Encapsulate your interaction with the API using [HTTParty](https://github.com/jnunemaker/httparty).
