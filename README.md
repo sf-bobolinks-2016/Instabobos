@@ -27,7 +27,7 @@
 ### Your credentials
 ![alt text](./docs/ig_credentials.png)
 
-
+## In the APP
 ### Add your credentials to the controller Instagram.rb:
 ```
   config.client_id = "2b089c3e792e413e83df3a594xxxxx"
@@ -35,6 +35,7 @@
 ```  
 
 ### Get the access_token :S
+	0 Shotgun
 	1 Visit '/'  
 	2 Press the Instagram Logo  
 	3 Authorize  
