@@ -67,7 +67,7 @@ access_token + Postman
 
 * Step 4: Use the access token saved in the session hash to consume the API.
 
-We are going to use the instagram gem.  
+We are using the instagram gem.  
 
 If you want to see what the gem is doing on each step:
 * [Step 1](https://github.com/facebookarchive/instagram-ruby-gem/blob/master/lib/instagram/oauth.rb#L5)
