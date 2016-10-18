@@ -1,14 +1,10 @@
 # Deconstruct some Instagram Magic
 
 ## Release 0
-Follow this repos instructions to get your credentials and add it to the project. We are going to use the instagram gem.  
-
-If you want to see what the gem is doing on each step:
-* [Step 1](https://github.com/facebookarchive/instagram-ruby-gem/blob/master/lib/instagram/oauth.rb#L5)
-* [Step 2](https://github.com/facebookarchive/instagram-ruby-gem/blob/master/lib/instagram/oauth.rb#L14)
-* [Step 4](https://github.com/facebookarchive/instagram-ruby-gem/blob/master/lib/instagram/client/users.rb#L160)
+Follow this repos instructions to get your credentials with Instagram and add them to the project. Get the project to authenticate and consume the API. 
 
 ### Run it
+* `bundle install`
 * ` $ Shotgun` or `$ Unicorn` (look into the difference)
 * Visit localhost:9393 or localhost:8080 (if defaults) 
 
@@ -64,6 +60,8 @@ access_token + Postman
 ## THE FLOW of OAuth 2.0
 ### Find this steps commented on app/controllers/instagram.rb
 
+We are going to use the instagram gem.  
+
 * Step 0: Provide a way to manage a ridirect to the third party login. 
 
 * Step 1: Redirect the users to the third party Auth url. This redirect usually require send some query params to notify the third party who you are and where are you comming from.  
@@ -72,7 +70,14 @@ access_token + Postman
 
 * Step 3: Once you have the code. Format a Post request to get an access token and some Users information. Inspect the response out of that Post. Use this info to create a user in your DB save and the token in the sessions hash.  
 
-* Step 4: Use the access token saved in the session hash to consume the API  
+* Step 4: Use the access token saved in the session hash to consume the API.
+
+We are going to use the instagram gem.  
+
+If you want to see what the gem is doing on each step:
+* [Step 1](https://github.com/facebookarchive/instagram-ruby-gem/blob/master/lib/instagram/oauth.rb#L5)
+* [Step 2](https://github.com/facebookarchive/instagram-ruby-gem/blob/master/lib/instagram/oauth.rb#L14)
+* [Step 4](https://github.com/facebookarchive/instagram-ruby-gem/blob/master/lib/instagram/client/users.rb#L160)
 
 ## Release 1
 Replace the usage of the API wrapper for your own url formating and Http request using [plain vanilla ruby](https://ruby-doc.org/stdlib-2.3.1/libdoc/net/http/rdoc/Net/HTTP.html).
