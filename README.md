@@ -27,11 +27,12 @@ Follow this repos instructions to get your credentials with Instagram and add th
 ![alt text](./docs/ig_credentials.png)
 
 ### In the APP
-#### Add your credentials to the controller app/controllers/instagram.rb:
+#### For now sdd your credentials to the controller app/controllers/instagram.rb:
 ```
   config.client_id = "2b089c3e792e413e83df3a594xxxxx"
   config.client_secret = "9302a2b100ae4494a8d43c65xxxxxx"
 ```  
+> Ideally you put this in an .env file ;)
 
 #### Run it
 	0 bundle install
