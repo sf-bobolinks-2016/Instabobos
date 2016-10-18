@@ -3,11 +3,6 @@
 ## Release 0
 Follow this repos instructions to get your credentials with Instagram and add them to the project. Get the project to authenticate and consume the API. 
 
-### Run it
-* `bundle install`
-* ` $ Shotgun` or `$ Unicorn` (look into the difference)
-* Visit localhost:9393 or localhost:8080 (if defaults) 
-
 ### Maria las llaves!! Get your keys...
 
 [Go to the Instagram Dev site](https://www.instagram.com/developer/)
@@ -32,18 +27,19 @@ Follow this repos instructions to get your credentials with Instagram and add th
 ![alt text](./docs/ig_credentials.png)
 
 ### In the APP
-#### Add your credentials to the controller Instagram.rb:
+#### Add your credentials to the controller app/controllers/instagram.rb:
 ```
   config.client_id = "2b089c3e792e413e83df3a594xxxxx"
   config.client_secret = "9302a2b100ae4494a8d43c65xxxxxx"
 ```  
 
-#### Get the access_token :S
-	0 Shotgun
-	1 Visit '/'  
-	2 Press the Instagram Logo  
-	3 Authorize  
-	4 PROFIT!!!  
+#### Run it
+	0 bundle install
+	1 Shotgun
+	2 Visit '/'  
+	3 Press the Instagram Logo  
+	4 Authorize  
+	5 PROFIT!!!  
 
 #### And the token ???
 In the servers logs (terminal)
