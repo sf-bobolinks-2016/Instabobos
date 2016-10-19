@@ -1,8 +1,8 @@
-class User 
+class NoSqlUser 
 	include ActiveModel::Validations
 	include Mongoid::Document
 
-	has_many :pictures
+	has_many :no_sql_pictures
 
 	validates :instagram_id, uniqueness: true
 

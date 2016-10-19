@@ -84,7 +84,15 @@ get "/auth/callback" do
   user_info = response.user
 
   # Creating User from info provided by third party
-  User.create(
+  NoSqlUser.create(
+    bio: user_info.bio,
+    full_name: user_info.full_name,
+    instagram_id: user_info.id,
+    profile_picture: user_info.profile_picture,
+    username: user_info.username,
+    website: user_info.website)
+
+  RdbmsUser.create(
     bio: user_info.bio,
     full_name: user_info.full_name,
     instagram_id: user_info.id,
@@ -109,15 +117,26 @@ get "/user_recent_media" do
   pp JSON.parse(recent_media.first.to_json)
 
   # This is an extra step to find the user...
-  user_id = User.find_by(instagram_id: recent_media.first.user.id).id
+  no_sql_user_id = NoSqlUser.find_by(instagram_id: recent_media.first.user.id).id
+  rdbms_user_id = RdbmsUser.find_by(instagram_id: recent_media.first.user.id).id
 
   # Saving Pictures in Mongo
   recent_media.each do |media|
-    Picture.create(
-      user_id: user_id,
+    NoSqlPicture.create(
+      no_sql_user_id: no_sql_user_id,
       instagram_id: media.id,
       instagram_type: media.type,
       location: media.location,
+      link: media.link,
+      thumbnail: media.images.thumbnail.url,
+      standard_resolution: media.images.standard_resolution.url
+      )
+
+    RdbmsPicture.create(
+      rdbms_user_id: rdbms_user_id,
+      instagram_id: media.id,
+      instagram_type: media.type,
+      location: 'we can not include a hash in sql',
       link: media.link,
       thumbnail: media.images.thumbnail.url,
       standard_resolution: media.images.standard_resolution.url
