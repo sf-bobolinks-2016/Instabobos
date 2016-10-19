@@ -83,7 +83,7 @@ get "/auth/callback" do
 
   user_info = response.user
 
-  # Creating User from info provided by third party
+  # Creating SQL and NoSQL User from info provided by third party
   NoSqlUser.create(
     bio: user_info.bio,
     full_name: user_info.full_name,
@@ -117,13 +117,13 @@ get "/user_recent_media" do
   pp JSON.parse(recent_media.first.to_json)
 
   # This is an extra step to find the user...
-  no_sql_user_id = NoSqlUser.find_by(instagram_id: recent_media.first.user.id).id
-  rdbms_user_id = RdbmsUser.find_by(instagram_id: recent_media.first.user.id).id
+  no_sql_user_id = NoSqlUser.find_by(instagram_id: recent_media.first.user.id)
+  rdbms_user_id = RdbmsUser.find_by(instagram_id: recent_media.first.user.id)
 
-  # Saving Pictures in Mongo
+  # Saving Pictures in Mongo and Postgres 
   recent_media.each do |media|
     NoSqlPicture.create(
-      no_sql_user_id: no_sql_user_id,
+      no_sql_user_id: no_sql_user_id.id,
       instagram_id: media.id,
       instagram_type: media.type,
       location: media.location,
@@ -133,7 +133,7 @@ get "/user_recent_media" do
       )
 
     RdbmsPicture.create(
-      rdbms_user_id: rdbms_user_id,
+      rdbms_user_id: rdbms_user_id.id,
       instagram_id: media.id,
       instagram_type: media.type,
       location: 'we can not include a hash in sql',
@@ -145,9 +145,10 @@ get "/user_recent_media" do
 
 
   # You now can use third party data in your views
-  html = "<h1>#{user.username}'s recent media</h1>"
-  for media_item in recent_media
-    html << "<div style='float:left;'><img src='#{media_item.images.thumbnail.url}'></div>"
+  # This is an expensive example but here we use both DB's to render
+  html = "<h1>#{no_sql_user_id.username}'s recent media</h1>"
+  for media_item in RdbmsPicture.all
+    html << "<div style='float:left;'><img src='#{media_item.thumbnail}'></div>"
   end
 
   html
